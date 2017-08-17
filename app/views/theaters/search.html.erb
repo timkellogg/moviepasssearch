@@ -1,0 +1,9 @@
+<h2>Find Movie Pass Theaters</h2>
+
+<%= form_tag theaters_path, method: :post, remote: true do %>
+  <%= label_tag :search %>
+  <%= text_field_tag :search, params[:search] %>
+  <%= submit_tag :search %>
+<% end %>
+
+<section id="results"></section>

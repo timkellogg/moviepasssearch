@@ -1,0 +1,8 @@
+<% if theaters.any? %>
+  <% theaters.each do |theater| %>
+    <span>Name: </span><%= theater.name %><br/>
+    <span>Address: </span><%= theater.address %><br/>
+  <% end %>
+<% else %>
+  <p>No results</p>
+<% end %>
