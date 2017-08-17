@@ -1,8 +1,12 @@
-<% if theaters.any? %>
+<% if theaters && theaters.any? %>
   <% theaters.each do |theater| %>
-    <span>Name: </span><%= theater.name %><br/>
-    <span>Address: </span><%= theater.address %><br/>
+    <span>Name: </span><%= theater['name'] %><br/>
+    <span>Address: </span><%= theater['address'] %><br/>
+    <span>State: </span><%= theater['state'] %><br/>
+    <br>
   <% end %>
 <% else %>
   <p>No results</p>
 <% end %>
+
+<div id="mapid"></div>

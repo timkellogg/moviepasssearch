@@ -3,14 +3,19 @@ class TheatersController < ApplicationController
   def search; end
 
   def index
-    zip = params[:search]
-    @theaters = $redis.get(zip)
+    term = params[:search_term]
+    search_type = params[:search_type]
 
-    if @theaters.nil?
-      @theaters = Theater.where(zip: zip).order(:name)
+    @theaters = $redis.get(term)
 
-      $redis.set(zip, @theaters.to_json) if @theaters.any?
-      $redis.expire(zip, 24.hour.to_i)
+    if @theaters.nil? || @theaters == ''
+      filters = { "#{search_type}": term }
+      @theaters = Theater.where(filters)
+
+      @theaters.any? ? $redis.set(term, @theaters.to_json) : $redis.set(term, nil)
+      $redis.expire(term, 24.hour.to_i)
+    else
+      @theaters = JSON.parse(@theaters)
     end
 
     @theaters

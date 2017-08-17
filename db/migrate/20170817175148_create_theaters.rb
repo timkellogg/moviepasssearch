@@ -4,7 +4,7 @@ class CreateTheaters < ActiveRecord::Migration[5.1]
       t.integer :githubid,  null: false, index: true
       t.string :name,       null: false
       t.string :address
-      t.string :city
+      t.string :city, index: true
       t.string :state
       t.integer :zip,       null: false, index: true
       t.float :distance

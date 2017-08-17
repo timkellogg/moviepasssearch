@@ -27,6 +27,7 @@ ActiveRecord::Schema.define(version: 20170817175148) do
     t.float "lat"
     t.string "theaterChainName"
     t.string "ticketType"
+    t.index ["city"], name: "index_theaters_on_city"
     t.index ["githubid"], name: "index_theaters_on_githubid"
     t.index ["zip"], name: "index_theaters_on_zip"
   end
