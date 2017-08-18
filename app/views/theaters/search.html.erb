@@ -9,9 +9,11 @@
 
 <h3>Quick Search:</h3>
 
-<%= link_to 'Washington', theaters_path(search_type: 'city', search_term: 'Washington'), remote: true, method: :post %>
+<%= link_to 'Washington', theaters_path(search_type: 'state', search_term: 'DC'), remote: true, method: :post %>
 <%= link_to 'New York', theaters_path(search_type: 'city', search_term: 'New York'), remote: true, method: :post %>
 <%= link_to 'Los Angeles', theaters_path(search_type: 'city', search_term: 'Los Angeles'), remote: true, method: :post %>
 <%= link_to 'Chicago', theaters_path(search_type: 'city', search_term: 'Chicago'), remote: true, method: :post %>
+
+<div id="map"></div>
 
 <section id="results"></section>

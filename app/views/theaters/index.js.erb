@@ -1,1 +1,15 @@
 document.getElementById('results').innerHTML = "<%= j (render partial: 'results', locals: { theaters: @theaters }) %>";
+
+for (var i = 0; i < markers.length; i++) {
+  map.removeLayer(markers[i]);
+}
+
+markers = <%= @points %>;
+
+var bounds = new L.LatLngBounds(markers);
+map.fitBounds(bounds);
+
+markers.forEach(function(marker) {
+  L.marker([marker[0],marker[1]]).addTo(map);
+});
+
