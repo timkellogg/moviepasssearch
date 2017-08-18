@@ -1,5 +1,12 @@
+@import url('https://fonts.googleapis.com/css?family=Josefin+Sans:400,700');
 @import 'leaflet';
+@import 'variables';
+@import 'typeography';
+@import 'components/form';
+@import 'components/map';
+@import 'components/search';
 
-#map {
-  height: 400px;
+body {
+  margin: 0;
+  font-family: 'Josefin Sans', sans-serif;
 }

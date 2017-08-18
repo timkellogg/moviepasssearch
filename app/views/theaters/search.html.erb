@@ -1,19 +1,37 @@
-<h2>Find Movie Pass Theaters</h2>
+<section class="search">
+  <h2 class="title">Movie Pass Theaters</h2>
 
-<%= form_tag theaters_path, method: :post, remote: true do %>
-  <%= label_tag :search %>
-  <%= text_field_tag :search_term %>
-  <%= hidden_field_tag :search_type, :zip %>
-  <%= submit_tag :search %>
-<% end %>
+  <div class="search__content">
+    <div class="search__content__section">
+      <%= form_tag theaters_path, method: :post, remote: true, class: 'form' do %>
+        <%= hidden_field_tag :search_type, :zip %>
+        <div class="form-section">
+          <%= label_tag :search, "By zip:" %>
+        </div>
 
-<h3>Quick Search:</h3>
+        <div class="form-section">
+          <%= text_field_tag :search_term %>
+          <%= button_tag :Search %>
+        </div>
+      <% end %>
+    </div>
+    <div class="search__content__section">
+      <label>By city:</label>
 
-<%= link_to 'Washington', theaters_path(search_type: 'state', search_term: 'DC'), remote: true, method: :post %>
-<%= link_to 'New York', theaters_path(search_type: 'city', search_term: 'New York'), remote: true, method: :post %>
-<%= link_to 'Los Angeles', theaters_path(search_type: 'city', search_term: 'Los Angeles'), remote: true, method: :post %>
-<%= link_to 'Chicago', theaters_path(search_type: 'city', search_term: 'Chicago'), remote: true, method: :post %>
+      <%= link_to 'Boston', theaters_path(search_type: 'city', search_term: 'Boston'), remote: true, method: :post, class: 'search__option' %>
+      <%= link_to 'Chicago', theaters_path(search_type: 'city', search_term: 'Chicago'), remote: true, method: :post, class: 'search__option' %>
+      <%= link_to 'Dallas', theaters_path(search_type: 'city', search_term: 'Dallas'), remote: true, method: :post, class: 'search__option' %>
+      <%= link_to 'Denver', theaters_path(search_type: 'city', search_term: 'Denver'), remote: true, method: :post, class: 'search__option' %>
+      <%= link_to 'Los Angeles', theaters_path(search_type: 'city', search_term: 'Los Angeles'), remote: true, method: :post, class: 'search__option' %>
+      <%= link_to 'Miami', theaters_path(search_type: 'city', search_term: 'Miami'), remote: true, method: :post, class: 'search__option' %>
+      <%= link_to 'New York', theaters_path(search_type: 'city', search_term: 'New York'), remote: true, method: :post, class: 'search__option' %>
+      <%= link_to 'Seattle', theaters_path(search_type: 'city', search_term: 'Seattle'), remote: true, method: :post, class: 'search__option' %>
+      <%= link_to 'San Francisco', theaters_path(search_type: 'city', search_term: 'San Francisco'), remote: true, method: :post, class: 'search__option' %>
+      <%= link_to 'Washington DC', theaters_path(search_type: 'state', search_term: 'DC'), remote: true, method: :post, class: 'search__option' %>
+    </div>
+  </div>
+</section>
 
-<div id="map"></div>
+<section id="map"></section>
 
 <section id="results"></section>

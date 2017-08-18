@@ -1,0 +1,29 @@
+.form-section {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+  padding-right: 20px;
+  font-weight: bold;
+}
+
+input {
+  padding: 9px 20px;
+  width: calc(100% - 100px);
+  border: 1px solid $black;
+  padding-left: 0;
+  text-indent: 10px;
+  background-color: $gray;
+}
+
+button {
+  padding: 10px 20px;
+  border-width: 0;
+  width: 90px;
+  background-color: $black;
+  color: $white;
+}

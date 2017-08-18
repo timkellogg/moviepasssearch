@@ -1,0 +1,19 @@
+.search {
+  &__content {
+    padding: 20px;
+
+    &__section:first-of-type {
+      margin-bottom: 20px;
+    }
+  }
+
+  &__option {
+    display: inline-block;
+    text-decoration: none;
+    color: $black;
+    padding: 10px 20px;
+    border: 1px solid $black;
+    margin-bottom: 5px;
+    background-color: $gray;
+  }
+}
