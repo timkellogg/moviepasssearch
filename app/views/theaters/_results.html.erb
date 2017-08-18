@@ -1,9 +1,14 @@
-<br />
-
 <% if theaters && theaters.any? %>
-  <% theaters.each do |theater| %>
-    <b><%= theater['name'] %></b><br/>
-    <%= theater['address'] %>, <%= theater['state'] %><br/>
+  <h2 class="title">Results:</h3>
+
+  <% theaters.each_with_index do |theater, index| %>
+    <div class="result">
+      <div class="result__number"><%= index + 1 %></div>
+      <div class="result__content">
+        <b><%= theater['name'] %></b><br/>
+        <%= theater['address'] %>, <%= theater['state'] %>
+      </div>
+    </div>
     <br>
   <% end %>
 <% else %>

@@ -1,6 +1,8 @@
 <section class="search">
   <h2 class="title">Movie Pass Theaters</h2>
 
+  <h3 class="subtitle">Search:</h3>
+
   <div class="search__content">
     <div class="search__content__section">
       <%= form_tag theaters_path, method: :post, remote: true, class: 'form' do %>
@@ -32,6 +34,6 @@
   </div>
 </section>
 
-<section id="map"></section>
-
 <section id="results"></section>
+
+<section id="map"></section>
