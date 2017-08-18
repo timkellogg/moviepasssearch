@@ -1,6 +1,7 @@
 .search {
   &__content {
     padding: 20px;
+    padding-bottom: 0;
 
     &__section:first-of-type {
       margin-bottom: 20px;
@@ -8,6 +9,8 @@
   }
 
   &__option {
+    @include hover-effect;
+  
     display: inline-block;
     text-decoration: none;
     color: $black;

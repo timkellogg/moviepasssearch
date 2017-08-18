@@ -1,6 +1,7 @@
 <% if theaters && theaters.any? %>
-  <h2 class="title">Results:</h3>
+  <h2 class="subtitle">Results:</h3>
 
+  <div class="results-container">
   <% theaters.each_with_index do |theater, index| %>
     <div class="result">
       <div class="result__number"><%= index + 1 %></div>
@@ -9,8 +10,10 @@
         <%= theater['address'] %>, <%= theater['state'] %>
       </div>
     </div>
-    <br>
   <% end %>
+ </div>
 <% else %>
-  <p>No results</p>
+  <div class="result">
+    <p><b>No results</b></p>
+  </div>
 <% end %>

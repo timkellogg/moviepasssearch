@@ -10,4 +10,18 @@
   margin-left: 20px;
   margin-bottom: 0;
   font-size: 20px;
+  border-bottom: 3px solid $black;
 }
+
+@mixin hover-effect {
+  transition: .3s all ease-out;
+  background-color: $gray;
+  color: $white;
+
+  &:hover {
+    transition: .3s all ease-out;
+    background-color: $black;
+    color: $white;
+  }
+}
+

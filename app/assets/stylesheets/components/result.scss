@@ -1,8 +1,18 @@
+.results-container {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  margin-bottom: 20px;
+  justify-content: space-between;
+}
+
 .result {
   display: flex;
+  width: 100%;
   justify-content: space-between;
   align-items: center;
-  padding: 20px;
+  padding-top: 20px;
+  padding-left: 20px;
 
   &__number {
     width: 20px;
@@ -11,5 +21,17 @@
 
   &__content {
     width: calc(100% - 20px);
+  }
+}
+
+@media screen and (min-width: 425px) {
+  .result {
+    width: 33%;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .result {
+    width: 22%;
   }
 }
