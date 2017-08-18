@@ -18,7 +18,6 @@ class TheatersController < ApplicationController
       @theaters = JSON.parse(@theaters)
     end
 
-    @points = @theaters.try(:map) { |t| [t['lat'], t['lon']] }
-    @theaters
+    @theaters.to_json
   end
 end

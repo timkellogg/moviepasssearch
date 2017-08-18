@@ -1,15 +1,13 @@
 document.getElementById('results').innerHTML = "<%= j (render partial: 'results', locals: { theaters: @theaters }) %>";
 
-for (var i = 0; i < markers.length; i++) {
-  map.removeLayer(markers[i]);
-}
+<% if @theaters && @theaters.any? %>
+  var points = <%= @theaters.map { |t| [t['lat'], t['lon']] } %>;
+  var theaters = <%= raw @theaters.map { |t| [t['lat'], t['lon'], t['name'], t['address']] } %>;
 
-markers = <%= @points %>;
+  var bounds = new L.LatLngBounds(points);
+  map.fitBounds(bounds);
 
-var bounds = new L.LatLngBounds(markers);
-map.fitBounds(bounds);
-
-markers.forEach(function(marker) {
-  L.marker([marker[0],marker[1]]).addTo(map);
-});
-
+  theaters.forEach(function(theater) {
+    L.marker([theater[0],theater[1]]).bindPopup(theater[2] + '<br/>' + theater[3]).addTo(map);
+  });
+<% end %>
